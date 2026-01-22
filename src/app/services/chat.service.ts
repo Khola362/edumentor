@@ -26,7 +26,7 @@ export interface ChatMessage {
   providedIn: 'root'
 })
 export class ChatService {
-  private apiUrl = 'https://edu-llm.vercel.app';
+  private apiUrl = 'https://edullm-backend.onrender.com';
     // private apiUrl = 'https://homogenous-preobvious-bell.ngrok-free.dev/api';
   
   constructor(private http: HttpClient) {}
