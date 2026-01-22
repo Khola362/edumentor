@@ -14,7 +14,8 @@ export class WebSocketService {
     // Close existing connection if any
     this.disconnect();
     
-    const wsUrl = `ws://localhost:8000/ws/chat/${sessionId}?user_id=${encodeURIComponent(userId)}`;
+    const wsUrl = `wss://edullm-backend.onrender.com/ws/chat/${sessionId}?user_id=${encodeURIComponent(userId)}`;
+    // const wsUrl = `ws://localhost:8000/ws/chat/${sessionId}?user_id=${encodeURIComponent(userId)}`;
     // const wsUrl = `wss://homogenous-preobvious-bell.ngrok-free.dev/ws/chat/${sessionId}?user_id=${encodeURIComponent(userId)}`;
     console.log('Connecting to WebSocket:', wsUrl);
     this.socket = new WebSocket(wsUrl);
