@@ -1,3 +1,4 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 /* You can add global styles to this file, and also import other style files */
 
 html,
@@ -13,7 +14,6 @@ body {
 /* You can add global styles to this file, and also import other style files */
 
 /* Material Theme Import */
-@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 /* Global Styles */
 * {

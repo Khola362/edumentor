@@ -26,14 +26,14 @@ export interface ChatMessage {
   providedIn: 'root'
 })
 export class ChatService {
-  private apiUrl = 'https://edullm-backend.onrender.com/api';
+  private apiUrl = 'https://edullm-backend.onrender.com';
   // private apiUrl = 'https://homogenous-preobvious-bell.ngrok-free.dev/api';
 
   constructor(private http: HttpClient) { }
 
   getChatSessions(userId: string): Observable<ChatSession[]> {
     return this.http.get<ChatSession[]>(
-      `${this.apiUrl}/chat/sessions`,
+      `${this.apiUrl}/api/chat/sessions`,
       { params: { user_id: userId } }
     ).pipe(
       catchError(error => {
@@ -54,7 +54,7 @@ export class ChatService {
     };
 
     return this.http.post<ChatSession>(
-      `${this.apiUrl}/chat/sessions`,
+      `${this.apiUrl}/api/chat/sessions`,
       sessionData
     ).pipe(
       catchError(error => {
@@ -67,7 +67,7 @@ export class ChatService {
   getChatMessages(sessionId: number): Observable<ChatMessage[]> {
     const userId = localStorage.getItem('username') || 'User';
     return this.http.get<ChatMessage[]>(
-      `${this.apiUrl}/chat/${sessionId}/messages`,
+      `${this.apiUrl}/api/chat/${sessionId}/messages`,
       { params: { user_id: userId } }
     ).pipe(
       catchError(error => {
