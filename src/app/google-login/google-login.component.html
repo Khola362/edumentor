@@ -1,21 +1,125 @@
-<div class="login-container">
-  <div class="login-card">
+<div class="login-page">
+  <!-- Background Animation -->
+  <div class="background-animation">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
 
-    <!-- Logo -->
-    <img src="assets/logo.png" alt="App Logo" class="logo" />
+  <!-- Login Container -->
+  <div class="login-container">
+    <!-- Left Panel - Branding -->
+    <div class="brand-panel">
+      <div class="back-home">
+        <button mat-button routerLink="/" class="back-btn">
+          <mat-icon>arrow_back</mat-icon>
+          Back to Home
+        </button>
+      </div>
 
-    <!-- Heading -->
-    <h1>Welcome Back</h1>
-    <h4>eduLLM</h4>
-    <p class="subtitle">Sign in to continue</p>
+      <div class="brand-content">
+        <!-- <div class="brand-logo">E</div> -->
+        <h1 class="brand-name">edu<span class="brand-highlight">LLM</span></h1>
+        <p class="brand-tagline">
+          Welcome back to your personalized learning journey.
+        </p>
 
-    <!-- Google Button -->
-    <div id="googleBtn" class="google-btn"></div>
+        <div class="brand-features">
+          <div class="feature-item">
+            <mat-icon>verified</mat-icon>
+            <span>AI-Powered Learning</span>
+          </div>
+          <div class="feature-item">
+            <mat-icon>security</mat-icon>
+            <span>Secure & Private</span>
+          </div>
+          <div class="feature-item">
+            <mat-icon>speed</mat-icon>
+            <span>Lightning Fast</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!-- Footer text -->
-    <p class="footer-text">
-      Secure login powered by Google
-    </p>
+    <!-- Right Panel - Login Form -->
+    <div class="login-panel">
+      <div class="login-card">
+        <div class="login-header">
+          <h2>Sign In</h2>
+          <!--  <p>Access your personalized learning dashboard</p> -->
+        </div>
 
+        <!-- Email/Password Login -->
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+          <!-- Email Field -->
+          <div class="form-field">
+            <div class="input-group">
+              <mat-icon class="input-icon">person_outline</mat-icon>
+              <input matInput formControlName="email" type="email" placeholder="Email address"
+                class="transparent-input">
+            </div>
+            <mat-error *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
+              Please enter a valid email
+            </mat-error>
+          </div>
+
+          <!-- Password Field -->
+          <div class="form-field">
+            <div class="input-group">
+              <mat-icon class="input-icon">lock_outline</mat-icon>
+              <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'"
+                placeholder="Password" class="transparent-input">
+              <button mat-icon-button type="button" class="toggle-password" (click)="hidePassword = !hidePassword">
+                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </div>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+              Password is required
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched">
+              Minimum 8 characters required
+            </mat-error>
+          </div>
+
+          <!-- Remember & Forgot -->
+          <!-- <div class="form-options">
+            <mat-checkbox formControlName="rememberMe" color="primary" class="remember-checkbox">
+              Remember me
+            </mat-checkbox>
+            <a href="#" class="forgot-link">Forgot password?</a>
+          </div> -->
+
+          <!-- Submit Button -->
+          <button mat-raised-button type="submit" class="submit-btn" [disabled]="!loginForm.valid"
+            [class.loading]="isLoading">
+            <span *ngIf="!isLoading">Sign In</span>
+            <span *ngIf="isLoading" class="loading-spinner"></span>
+            <mat-icon *ngIf="!isLoading">arrow_forward</mat-icon>
+
+          </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="divider">
+          <span class="divider-text">or continue with</span>
+        </div>
+
+        <!-- Google Button -->
+        <div id="googleBtn" class="google-btn-container"></div>
+
+
+
+        <!-- Footer Note -->
+        <div class="login-footer">
+          <mat-icon class="footer-icon">info</mat-icon>
+          <p><small> signing in, you agree to our Terms and Privacy Polic</small>y</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

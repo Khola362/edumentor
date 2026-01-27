@@ -27,7 +27,7 @@ class ConnectionManager:
 
 manager = ConnectionManager()
 
-@router.websocket("/chat/{session_id}")
+@router.websocket("/api/chat/{session_id}")
 async def websocket_chat(websocket: WebSocket, session_id: str):
     await manager.connect(websocket, session_id)
     

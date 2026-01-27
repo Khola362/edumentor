@@ -18,7 +18,7 @@ class LLMService:
         else:
             print("❌ ERROR: No valid API key found!")
             print("   Please set RENDER_API_KEY in .env file")
-            print("   Example: RENDER_API_KEY=punjab123")
+            print("   Example: RENDER_API_KEY=rameez_secrete")
     
     async def generate_response(self, messages: list, session_id: str = None, query: str = None, stream: bool = True) -> AsyncGenerator[str, None]:
         """Generate response using Punjab Text Book API"""

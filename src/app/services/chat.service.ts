@@ -26,11 +26,11 @@ export interface ChatMessage {
   providedIn: 'root'
 })
 export class ChatService {
-  private apiUrl = 'http://localhost:8000/api';
-    // private apiUrl = 'https://homogenous-preobvious-bell.ngrok-free.dev/api';
-  
-  constructor(private http: HttpClient) {}
-  
+  private apiUrl = 'https://edullm-backend.onrender.com/api';
+  // private apiUrl = 'https://homogenous-preobvious-bell.ngrok-free.dev/api';
+
+  constructor(private http: HttpClient) { }
+
   getChatSessions(userId: string): Observable<ChatSession[]> {
     return this.http.get<ChatSession[]>(
       `${this.apiUrl}/chat/sessions`,
@@ -46,13 +46,13 @@ export class ChatService {
       })
     );
   }
-  
+
   createChatSession(userId: string, title: string = 'New Chat'): Observable<ChatSession> {
     const sessionData: ChatSessionCreate = {
       user_id: userId,
       title: title
     };
-    
+
     return this.http.post<ChatSession>(
       `${this.apiUrl}/chat/sessions`,
       sessionData
@@ -63,7 +63,7 @@ export class ChatService {
       })
     );
   }
-  
+
   getChatMessages(sessionId: number): Observable<ChatMessage[]> {
     const userId = localStorage.getItem('username') || 'User';
     return this.http.get<ChatMessage[]>(

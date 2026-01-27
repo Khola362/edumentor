@@ -1,0 +1,240 @@
+<!-- Navigation -->
+<mat-toolbar class="navbar" [class.scrolled]="isScrolled">
+    <div class="nav-container">
+        <!-- Logo -->
+        <a class="logo-section" routerLink="/">
+            <!-- <div class="logo-placeholder">E</div> -->
+            <span class="brand-name">edu<span class="brand-highlight">LLM</span></span>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="nav-menu">
+            <a mat-button routerLink="/" routerLinkActive="active">Home</a>
+            <a mat-button routerLink="/features">Features</a>
+            <a mat-button routerLink="/about">About</a>
+            <a mat-button routerLink="/contact">Contact</a>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="nav-actions">
+            <button mat-button routerLink="/login" class="login-btn">
+                Sign In
+            </button>
+            <button mat-raised-button color="primary" routerLink="/register" class="cta-btn">
+                Get Started
+            </button>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button mat-icon-button class="menu-btn" (click)="toggleMenu()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" [class.active]="isMenuOpen">
+        <a mat-button routerLink="/" (click)="closeMenu()">Home</a>
+        <a mat-button routerLink="/features" (click)="closeMenu()">Features</a>
+        <a mat-button routerLink="/about" (click)="closeMenu()">About</a>
+        <a mat-button routerLink="/contact" (click)="closeMenu()">Contact</a>
+        <div class="mobile-actions">
+            <button mat-button routerLink="/login" (click)="closeMenu()">Sign In</button>
+            <button mat-raised-button color="primary" routerLink="/register" (click)="closeMenu()">Get Started</button>
+        </div>
+    </div>
+</mat-toolbar>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-content">
+        <div class="badge animate-fade-in">
+            <mat-icon>stars</mat-icon>
+            <span>AI-Powered Learning Revolution</span>
+        </div>
+
+        <h1 class="hero-title animate-slide-up">
+            Learn Smarter,<br>
+            <span class="gradient-text">Not Harder</span>
+        </h1>
+
+        <p class="hero-subtitle animate-slide-up">
+            eduLLM combines cutting-edge AI with personalized learning to help you master any subject,
+            at your own pace, with intelligent guidance every step of the way.
+        </p>
+
+        <div class="hero-actions animate-slide-up">
+            <button mat-raised-button color="primary" class="hero-btn primary" routerLink="/register">
+                Start Learning Free
+                <mat-icon>arrow_forward</mat-icon>
+            </button>
+            <button mat-button class="hero-btn secondary" routerLink="/login">
+                <mat-icon>login</mat-icon>
+                Sign In
+            </button>
+        </div>
+    </div>
+
+    <!-- <div class="hero-image animate-float">
+        <div class="ai-visual">
+            <div class="pulse-dot dot-1"></div>
+            <div class="pulse-dot dot-2"></div>
+            <div class="pulse-dot dot-3"></div>
+            <div class="ai-core">
+                <mat-icon>psychology</mat-icon>
+            </div>
+        </div>
+    </div> -->
+</section>
+
+<!-- Why Choose eduLLM -->
+<section class="features-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title animate-slide-up">
+                Why Choose <span class="gradient-text">eduLLM</span>?
+            </h2>
+            <p class="section-subtitle animate-slide-up">
+                Experience education reimagined with artificial intelligence
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card animate-slide-up" *ngFor="let feature of features; let i = index"
+                [style.animation-delay]="i * 0.1 + 's'">
+                <div class="feature-icon">
+                    <mat-icon>{{feature.icon}}</mat-icon>
+                </div>
+                <h3>{{feature.title}}</h3>
+                <p>{{feature.description}}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What Our Students Say -->
+<section class="testimonials-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title animate-slide-up">
+                What Our <span class="gradient-text">Students Say</span>
+            </h2>
+            <p class="section-subtitle animate-slide-up">
+                Join thousands who transformed their learning journey
+            </p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card animate-slide-up" *ngFor="let testimonial of testimonials; let i = index"
+                [style.animation-delay]="i * 0.1 + 's'">
+                <div class="testimonial-content">
+                    <div class="testimonial-header">
+                        <img [src]="testimonial.avatar" [alt]="testimonial.name" class="avatar">
+                        <div class="testimonial-info">
+                            <h4>{{testimonial.name}}</h4>
+                            <p>{{testimonial.role}}</p>
+                        </div>
+                        <div class="rating">
+                            <mat-icon *ngFor="let star of [1,2,3,4,5]">star</mat-icon>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"{{testimonial.text}}"</p>
+                    <div class="testimonial-date">{{testimonial.date}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Login Card (On Home Page) -->
+<section class="login-card-section">
+    <div class="container">
+        <div class="login-card-home animate-slide-up">
+            <div class="login-card-content">
+                <h2>Ready to Begin?</h2>
+                <p>Start your personalized learning journey today. Sign in or create your free account.</p>
+
+                <div class="login-card-actions">
+                    <button mat-raised-button color="primary" class="login-card-btn" routerLink="/login">
+                        <mat-icon>login</mat-icon>
+                        Sign In to Your Account
+                    </button>
+                    <button mat-button class="login-card-btn-secondary" routerLink="/register">
+                        Create Free Account
+                    </button>
+                </div>
+
+                <div class="login-card-footer">
+                    <mat-icon>security</mat-icon>
+                    <span>Secure & Private · No credit card required</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-section">
+                    <div class="footer-logo">E</div>
+                    <span class="brand-name">edu<span class="brand-highlight">LLM</span></span>
+                </div>
+                <p class="footer-tagline">Revolutionizing education through artificial intelligence.</p>
+
+                <div class="social-links">
+                    <a mat-icon-button href="#" class="social-link">
+                        <mat-icon>twitter</mat-icon>
+                    </a>
+                    <a mat-icon-button href="#" class="social-link">
+                        <mat-icon>linkedin</mat-icon>
+                    </a>
+                    <a mat-icon-button href="#" class="social-link">
+                        <mat-icon>github</mat-icon>
+                    </a>
+                    <a mat-icon-button href="#" class="social-link">
+                        <mat-icon>school</mat-icon>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-links-grid">
+                <div class="footer-links-group">
+                    <h4>Product</h4>
+                    <a href="#">Features</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">API</a>
+                    <a href="#">Updates</a>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>Company</h4>
+                    <a href="#">About</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Press</a>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2024 eduLLM. All rights reserved.</p>
+            <div class="footer-links-minimal">
+                <a href="#">Privacy Policy</a>
+                <span class="divider">·</span>
+                <a href="#">Terms of Service</a>
+                <span class="divider">·</span>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>

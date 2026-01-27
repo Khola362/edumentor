@@ -1,14 +1,14 @@
 <div class="app-shell">
-  
+
   <!-- HEADER -->
   <header class="topbar">
     <button class="icon-btn" (click)="toggleSidebar()">
       <span *ngIf="!sidebarOpen">☰</span>
       <span *ngIf="sidebarOpen">✕</span>
     </button>
-    
+
     <div class="brand">EduLLMs</div>
-    
+
     <div class="user">
       <div class="user-avatar">{{ username.charAt(0).toUpperCase() }}</div>
       <div class="user-info">
@@ -20,16 +20,16 @@
 
   <!-- MAIN LAYOUT -->
   <div class="main">
-    
+
     <!-- SIDEBAR -->
     <aside class="sidebar" [class.closed]="!sidebarOpen">
       <button class="new-chat-btn" (click)="newChat()">
         <span>+</span> New Chat
       </button>
-      
+
       <div class="history">
         <div class="history-title">Today</div>
-        
+
         <!-- Current active chat -->
         <!-- <div *ngIf="currentSessionId" 
              class="history-item active"
@@ -37,23 +37,21 @@
           <span class="history-icon">💬</span>
           <span>Current Chat</span>
         </div> -->
-        
+
         <!-- Chat History -->
-        <div *ngFor="let chat of chatHistory" 
-             class="history-item"
-             [class.active]="chat.id === currentSessionId"
-             (click)="loadChat(chat.id)">
+        <div *ngFor="let chat of chatHistory" class="history-item" [class.active]="chat.id === currentSessionId"
+          (click)="loadChat(chat.id)">
           <span class="history-icon"></span>
           <span>{{ chat.title || 'Untitled Chat' }}</span>
         </div>
-        
+
         <!-- Empty State -->
         <div *ngIf="chatHistory.length === 0 && !isLoading" class="empty-history">
           <div class="empty-icon">📚</div>
           <p>No chat history yet</p>
           <p class="empty-hint">Start a new conversation!</p>
         </div>
-        
+
         <!-- Loading State -->
         <div *ngIf="isLoading" class="loading-history">
           <div class="typing-indicator">
@@ -62,7 +60,7 @@
           <p>Loading history...</p>
         </div>
       </div>
-      
+
       <!-- Sidebar Footer -->
       <div class="sidebar-footer">
         <button class="icon-btn-small" title="Settings">
@@ -75,104 +73,104 @@
     </aside>
 
     <!-- CHAT PANEL -->
-   <!-- CHAT PANEL -->
-<section class="chat-panel">
-  
-  <!-- Chat Window -->
-  <div class="chat-window" #chatWindow>
-    
-    <!-- Welcome Screen (Only shows when NO messages) -->
-    <div *ngIf="messages.length === 0 && !isTyping" class="welcome-screen">
-      <div class="app-logo">🎓</div>
-      <h1>Welcome to EduLLMs</h1>
-      <p class="subtitle">Your AI-powered educational assistant</p>
-      
-      <div class="prompt-suggestions">
-        <div class="suggestion-row">
-          <button class="suggestion-btn" (click)="sendSuggestion('Explain quantum computing basics')">
-            <span class="suggestion-icon">⚛️</span>
-            <span class="suggestion-text">Explain quantum computing basics</span>
-          </button>
-          <button class="suggestion-btn" (click)="sendSuggestion('Help me with calculus derivatives')">
-            <span class="suggestion-icon">📐</span>
-            <span class="suggestion-text">Help with calculus derivatives</span>
-          </button>
-        </div>
-        <div class="suggestion-row">
-          <button class="suggestion-btn" (click)="sendSuggestion('Write a Python program for fibonacci sequence')">
-            <span class="suggestion-icon">🐍</span>
-            <span class="suggestion-text">Python fibonacci program</span>
-          </button>
-          <button class="suggestion-btn" (click)="sendSuggestion('What is machine learning?')">
-            <span class="suggestion-icon">🤖</span>
-            <span class="suggestion-text">What is machine learning?</span>
-          </button>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Messages Area -->
-    <div *ngFor="let msg of messages" 
-         class="bubble"
-         [class.user]="msg.sender === 'user'"
-         [class.bot]="msg.sender === 'bot'">
-      
-      <!-- Bot Message -->
-      <div *ngIf="msg.sender === 'bot'" class="bot-message">
-        <div class="message-content">{{ msg.text }}</div>
-      </div>
-      
-      <!-- User Message -->
-      <div *ngIf="msg.sender === 'user'" class="user-message">
-        <div class="message-content">{{ msg.text }}</div>
-        <div class="message-time">{{ getCurrentTime() }}</div>
-      </div>
-    </div>
-    
-    <!-- Typing Indicator -->
-    <div *ngIf="isTyping" class="typing-indicator">
-      <div class="typing-avatar">🤖</div>
-      <div class="typing-dots">
-        <span></span><span></span><span></span>
-      </div>
-      <span class="typing-text">EduLLM is thinking...</span>
-    </div>
-    
-    <!-- Connection Status -->
-    <div *ngIf="showConnectionWarning" 
-         class="connection-status"
-         [class.offline]="!isWebSocketConnected"
-         [class.online]="isWebSocketConnected">
-      <span class="status-icon">{{ isWebSocketConnected ? '✅' : '⚠️' }}</span>
-      <span class="status-text">
-        {{ isWebSocketConnected ? 'Connected' : 'Connection lost. Reconnecting...' }}
-      </span>
-    </div>
-  </div>
+    <!-- CHAT PANEL -->
+    <section class="chat-panel">
 
-  <!-- Input Bar -->
- <!-- Input Bar - Replace your current input-bar section -->
-<div class="input-bar">
-  <div class="input-container">
-    <!-- Change this line -->
-    <!-- Alternative 1: Use explicit typing -->
-<input #prompt 
-       type="text"
-       placeholder="Message EduLLMs..."
-       [disabled]="isTyping || !isWebSocketConnected"
-       (keydown)="handleKeyDown($event, prompt)"
-       class="chat-input" />
-    
-    <button class="send-btn" 
-            (click)="sendMessage(prompt)"
-            [disabled]="isTyping || !isWebSocketConnected"
+      <!-- Chat Window -->
+      <div class="chat-window" #chatWindow>
+
+        <!-- Welcome Screen (Only shows when NO messages) -->
+        <div *ngIf="messages.length === 0 && !isTyping" class="welcome-screen">
+          <!-- <div class="app-logo">🎓</div> -->
+          <h1>Welcome to EduLLMs</h1>
+          <p class="subtitle">Your AI-powered educational assistant</p>
+
+          <div class="prompt-suggestions">
+            <div class="suggestion-row">
+              <button class="suggestion-btn" (click)="sendSuggestion('Explain quantum computing basics')">
+                <span class="suggestion-icon">⚛️</span>
+                <span class="suggestion-text">Explain quantum computing basics</span>
+              </button>
+              <button class="suggestion-btn" (click)="sendSuggestion('Help me with calculus derivatives')">
+                <span class="suggestion-icon">📐</span>
+                <span class="suggestion-text">Help with calculus derivatives</span>
+              </button>
+            </div>
+            <div class="suggestion-row">
+              <button class="suggestion-btn" (click)="sendSuggestion('Write a Python program for fibonacci sequence')">
+                <span class="suggestion-icon">🐍</span>
+                <span class="suggestion-text">Python fibonacci program</span>
+              </button>
+              <button class="suggestion-btn" (click)="sendSuggestion('What is machine learning?')">
+                <span class="suggestion-icon">🤖</span>
+                <span class="suggestion-text">What is machine learning?</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Messages Area -->
+        <div *ngFor="let msg of messages" class="bubble" [class.user]="msg.sender === 'user'"
+          [class.bot]="msg.sender === 'bot'">
+
+          <!-- Bot Message -->
+          <div *ngIf="msg.sender === 'bot'" class="bot-message">
+            <div class="message-content">{{ msg.text }}</div>
+          </div>
+
+          <!-- User Message -->
+          <div *ngIf="msg.sender === 'user'" class="user-message">
+            <div class="message-content">{{ msg.text }}</div>
+            <div class="message-time">{{ getCurrentTime() }}</div>
+          </div>
+        </div>
+
+        <!-- Typing Indicator -->
+        <!-- Update the typing indicator section in your HTML -->
+        <div *ngIf="isTyping" class="typing-indicator">
+          <div class="typing-avatar">🤖</div>
+          <div class="typing-content">
+            <div class="typing-header">
+              <span class="typing-text">EduLLM is thinking</span>
+              <div class="typing-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="typing-subtext">Processing your request...</div>
+          </div>
+        </div>
+
+        <!-- Add overlay for mobile sidebar -->
+        <div class="sidebar-overlay" (click)="toggleSidebar()" *ngIf="sidebarOpen"></div>
+
+        <!-- Connection Status -->
+        <div *ngIf="showConnectionWarning" class="connection-status" [class.offline]="!isWebSocketConnected"
+          [class.online]="isWebSocketConnected">
+          <span class="status-icon">{{ isWebSocketConnected ? '✅' : '⚠️' }}</span>
+          <span class="status-text">
+            {{ isWebSocketConnected ? 'Connected' : 'Connection lost. Reconnecting...' }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Input Bar -->
+      <!-- Input Bar - Replace your current input-bar section -->
+      <div class="input-bar">
+        <div class="input-container">
+          <!-- Change this line -->
+          <!-- Alternative 1: Use explicit typing -->
+          <input #prompt type="text" placeholder="Message EduLLMs..." [disabled]="isTyping || !isWebSocketConnected"
+            (keydown)="handleKeyDown($event, prompt)" class="chat-input" />
+
+          <button class="send-btn" (click)="sendMessage(prompt)" [disabled]="isTyping || !isWebSocketConnected"
             title="Send message">
-      <span class="btn-text">Send</span>
-      <!-- <span class="btn-icon">⬆️</span> -->
-    </button>
+            <span class="btn-text">Send</span>
+            <!-- <span class="btn-icon">⬆️</span> -->
+          </button>
+        </div>
+      </div>
+    </section>
   </div>
 </div>
-</section>
-  </div>
-</div>
-

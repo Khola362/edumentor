@@ -11,7 +11,7 @@ class Settings:
         self.database_url: str = os.getenv("DATABASE_URL", "sqlite:///./edullms.db")
         
         # Punjab Text Book API - YOUR SETTINGS
-        self.punjab_api_key: str = os.getenv("RENDER_API_KEY", "punjab123")  # Your key
+        self.punjab_api_key: str = os.getenv("RENDER_API_KEY", "rameez-secret-key-2026")  # Your key
         self.punjab_api_url: str = os.getenv("RENDER_URL", "https://punjab-text-book.onrender.com")
         
         # JWT

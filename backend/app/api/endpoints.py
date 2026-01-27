@@ -26,7 +26,7 @@ class ChatMessageResponse(BaseModel):
     content: str
     timestamp: str
 
-@router.get("/chat/sessions")
+@router.get("/api/chat/sessions")
 def get_chat_sessions(
     user_id: str,
     db: Session = Depends(get_db)
@@ -47,7 +47,7 @@ def get_chat_sessions(
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@router.post("/chat/sessions")
+@router.post("/api/chat/sessions")
 def create_chat_session(
     session_data: ChatSessionCreate,
     db: Session = Depends(get_db)
@@ -65,7 +65,7 @@ def create_chat_session(
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@router.get("/chat/{session_id}/messages")
+@router.get("/api/chat/{session_id}/messages")
 def get_chat_messages(
     session_id: int,
     user_id: str,
