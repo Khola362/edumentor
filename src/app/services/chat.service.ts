@@ -26,6 +26,7 @@ export interface ChatMessage {
   providedIn: 'root'
 })
 export class ChatService {
+  // private apiUrl = 'http://localhost:8000';
   private apiUrl = 'https://edullm-backend.onrender.com';
   // private apiUrl = 'https://homogenous-preobvious-bell.ngrok-free.dev/api';
 

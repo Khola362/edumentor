@@ -7,7 +7,7 @@
       <span *ngIf="sidebarOpen">✕</span>
     </button>
 
-    <div class="brand">EduLLMs</div>
+    <div class="brand">EduMentor</div>
 
     <div class="user">
       <div class="user-avatar">{{ username.charAt(0).toUpperCase() }}</div>
@@ -82,7 +82,7 @@
         <!-- Welcome Screen (Only shows when NO messages) -->
         <div *ngIf="messages.length === 0 && !isTyping" class="welcome-screen">
           <!-- <div class="app-logo">🎓</div> -->
-          <h1>Welcome to EduLLMs</h1>
+          <h1>Welcome to EduMentor</h1>
           <p class="subtitle">Your AI-powered educational assistant</p>
 
           <div class="prompt-suggestions">
@@ -161,7 +161,7 @@
         <div class="input-container">
           <!-- Change this line -->
           <!-- Alternative 1: Use explicit typing -->
-          <input #prompt type="text" placeholder="Message EduLLMs..." [disabled]="isTyping || !isWebSocketConnected"
+          <input #prompt type="text" placeholder="Message EduMentor..." [disabled]="isTyping || !isWebSocketConnected"
             (keydown)="handleKeyDown($event, prompt)" class="chat-input" />
 
           <button class="send-btn" (click)="sendMessage(prompt)" [disabled]="isTyping || !isWebSocketConnected"

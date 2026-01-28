@@ -316,18 +316,30 @@
 .message-content {
   line-height: 1.6;
   font-size: 14px;
+  white-space: pre-wrap;
+  /* preserves \n and spaces */
+  word-wrap: break-word;
 }
 
 .message-content p {
   margin: 8px 0;
+  white-space: pre-wrap;
+  /* preserves \n and spaces */
+  word-wrap: break-word;
 }
 
 .message-content p:first-child {
   margin-top: 0;
+  white-space: pre-wrap;
+  /* preserves \n and spaces */
+  word-wrap: break-word;
 }
 
 .message-content p:last-child {
   margin-bottom: 0;
+  white-space: pre-wrap;
+  /* preserves \n and spaces */
+  word-wrap: break-word;
 }
 
 .message-time {
@@ -856,6 +868,9 @@
   overflow-x: auto;
   font-size: 13px;
   font-family: 'SF Mono', Monaco, monospace;
+  white-space: pre-wrap;
+  /* preserves \n and spaces */
+  word-wrap: break-word;
 }
 
 .message-content code {
@@ -866,6 +881,9 @@
   font-size: 12.5px;
   color: #6d28d9;
   border: 1px solid #ddd6fe;
+  white-space: pre-wrap;
+  /* preserves \n and spaces */
+  word-wrap: break-word;
 }
 
 /* Mobile Optimizations */

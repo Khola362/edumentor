@@ -7,7 +7,7 @@ from datetime import datetime
 load_dotenv()
 
 api_key = os.getenv("RENDER_API_KEY", "rameez-secret-key-2026")
-url = "https://6399df36b31b.ngrok-free.app/ask"
+url = "https://e47a81b2ab5f.ngrok-free.app/ask"
 
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 txt_file = f"response_{timestamp}.txt"

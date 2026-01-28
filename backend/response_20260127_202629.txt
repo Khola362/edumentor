@@ -1,6 +1,6 @@
 Status: 404
-URL: http://114da804c6fb7.ngrok-free.app/ask
-Time: 2026-01-26 12:31:00.059037
+URL: https://e9bc3c9e2b78.ngrok-free.app/ask
+Time: 2026-01-27 20:26:32.092369
 
 Full Response:
 <!DOCTYPE html>
@@ -21,10 +21,10 @@ Full Response:
     <link href="https://ngrok.com/assets/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <meta name="robots" content="noindex, nofollow">
     <link id="style" rel="stylesheet" href="https://cdn.ngrok.com/static/css/error.css">
-    <noscript>The endpoint 114da804c6fb7.ngrok-free.app is offline. (ERR_NGROK_3200)</noscript>
+    <noscript>The endpoint e9bc3c9e2b78.ngrok-free.app is offline. (ERR_NGROK_3200)</noscript>
     <script id="script" src="https://cdn.ngrok.com/static/js/error.js" type="text/javascript"></script>
   </head>
   <body class="h-full" id="ngrok">
-    <div id="root" data-payload="eyJjZG5CYXNlIjoiaHR0cHM6Ly9jZG4ubmdyb2suY29tLyIsImNvZGUiOiIzMjAwIiwibWVzc2FnZSI6IlRoZSBlbmRwb2ludCAxMTRkYTgwNGM2ZmI3Lm5ncm9rLWZyZWUuYXBwIGlzIG9mZmxpbmUuIiwidGl0bGUiOiJOb3QgRm91bmQifQ=="></div>
+    <div id="root" data-payload="eyJjZG5CYXNlIjoiaHR0cHM6Ly9jZG4ubmdyb2suY29tLyIsImNvZGUiOiIzMjAwIiwibWVzc2FnZSI6IlRoZSBlbmRwb2ludCBlOWJjM2M5ZTJiNzgubmdyb2stZnJlZS5hcHAgaXMgb2ZmbGluZS4iLCJ0aXRsZSI6Ik5vdCBGb3VuZCJ9"></div>
   </body>
 </html>

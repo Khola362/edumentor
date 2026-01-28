@@ -137,7 +137,10 @@ export class GoogleLoginComponent implements OnInit {
     });
 
     // Navigate to home page
-    this.router.navigate(['/dashboard']);
+    this.ngZone.run(() => {
+      this.router.navigateByUrl('/dashboard');
+    });
+
   }
 
   // Google Login Handler
@@ -165,7 +168,10 @@ export class GoogleLoginComponent implements OnInit {
       });
 
       // Navigate to home page
-      this.router.navigate(['/dashboard']);
+      this.ngZone.run(() => {
+        this.router.navigateByUrl('/dashboard');
+      });
+
     });
   }
 

@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
       name: 'Alex Morgan',
       role: 'Computer Science Student',
       avatar: 'https://i.pravatar.cc/150?img=8',
-      text: 'eduLLM transformed how I study. The AI explanations are incredibly clear and help me grasp complex concepts faster than any textbook.',
+      text: 'eduMentor transformed how I study. The AI explanations are incredibly clear and help me grasp complex concepts faster than any textbook.',
       date: '2 weeks ago',
       rating: 5
     },
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
       name: 'Dr. Sarah Chen',
       role: 'University Professor',
       avatar: 'https://i.pravatar.cc/150?img=5',
-      text: 'As an educator, I\'m impressed with how eduLLM personalizes learning. It\'s like having a teaching assistant for every student.',
+      text: 'As an educator, I\'m impressed with how eduMentor personalizes learning. It\'s like having a teaching assistant for every student.',
       date: '1 month ago',
       rating: 5
     },
@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
       name: 'Marcus Johnson',
       role: 'Career Changer',
       avatar: 'https://i.pravatar.cc/150?img=11',
-      text: 'Switched careers at 35. eduLLM made learning new skills manageable with bite-sized, AI-powered lessons that adapt to my pace.',
+      text: 'Switched careers at 35. eduMentor made learning new skills manageable with bite-sized, AI-powered lessons that adapt to my pace.',
       date: '3 weeks ago',
       rating: 5
     }
